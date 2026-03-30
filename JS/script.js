@@ -203,3 +203,28 @@ document.querySelectorAll('input[name="body-theme"]').forEach((input) => {
         document.body.classList = currentTheme;
     });
 });
+
+// right click disable
+
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+    });
+
+
+
+    document.onkeydown = function(e) {
+        // Disable F12
+        if (event.keyCode == 123) {
+            return false;
+        }
+        // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
+        if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) {
+            return false;
+        }
+        // Disable Ctrl+U
+        if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+            return false;
+        }
+    }
+
+
